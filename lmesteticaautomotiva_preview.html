@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lmesteticaautomotiva — Estética Automotiva</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 75% 15%,rgba(235,20,35,.12),transparent 30%),radial-gradient(circle at 15% 70%,rgba(255,0,20,.06),transparent 25%);z-index:-1}
+a{text-decoration:none;color:inherit}
+header{position:fixed;top:0;left:0;right:0;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:rgba(0,0,0,.72);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.08);z-index:10}
+.logo{font-size:20px;font-weight:900;font-style:italic}.logo span{color:#f20d20}
+nav{display:flex;gap:32px;font-size:13px;color:#ddd}nav a{transition:.3s}nav a:hover{color:#ff172a}
+.topbtn,.cta{border:1px solid #f0182b;border-radius:30px;padding:12px 20px;color:#fff;transition:.3s;display:inline-block}
+.topbtn:hover,.cta:hover{background:#f0182b;box-shadow:0 0 28px rgba(240,24,43,.45);transform:translateY(-3px)}
+.hero{min-height:720px;padding:160px 8% 100px;display:flex;align-items:center;position:relative;isolation:isolate;background:linear-gradient(90deg,#030303 8%,rgba(3,3,3,.82) 38%,rgba(3,3,3,.25)),linear-gradient(0deg,#050505,transparent 25%),url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,#050505 100%);z-index:-1}
+.hero-content{max-width:610px;animation:fadeUp 1s ease both}.eyebrow{color:#f21a2e;letter-spacing:4px;font-size:12px;font-weight:bold;margin-bottom:18px}
+h1{font-size:clamp(46px,6vw,78px);line-height:.98;margin-bottom:25px}.red{color:#ff1429}
+.hero p{color:#bbb;line-height:1.7;max-width:560px;margin-bottom:30px}.cta{background:#ef1427;border:0;font-weight:bold;margin-right:10px}.ghost{background:transparent;border:1px solid #555}
+section{padding:100px 8%;position:relative}.section-title{max-width:650px;margin-bottom:50px}.section-title h2{font-size:42px;margin:10px 0}.section-title p{color:#999;line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{padding:30px;background:linear-gradient(145deg,#111,#080808);border:1px solid #202020;border-radius:16px;min-height:220px;transition:.45s;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:120px;height:120px;right:-60px;top:-60px;background:#ed1025;border-radius:50%;filter:blur(45px);opacity:0;transition:.45s}.card:hover{transform:translateY(-12px);border-color:#ed1025;box-shadow:0 18px 45px rgba(0,0,0,.55),0 0 30px rgba(237,16,37,.14)}.card:hover:before{opacity:.35}.icon{font-size:32px;color:#ff1529;margin-bottom:28px}.card h3{margin-bottom:12px}.card p{color:#888;line-height:1.6;font-size:14px}
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;background:#080808}.about-img{height:480px;border-radius:22px;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent),url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1000&q=85") center/cover;box-shadow:0 0 60px rgba(0,0,0,.6);transition:.6s}.about-img:hover{transform:scale(1.025);box-shadow:0 0 55px rgba(239,20,39,.18)}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.point{border-top:1px solid #282828;padding-top:18px}.point b{display:block;margin-bottom:7px}.point span{color:#777;font-size:13px}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}.gallery div{border-radius:14px;background-size:cover;background-position:center;transition:.5s;filter:saturate(.8)}.gallery div:hover{transform:scale(1.025);filter:saturate(1.2);box-shadow:0 0 25px rgba(240,20,40,.2)}.g1{grid-row:span 2;background-image:url("https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=85")}.g2{background-image:url("https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=700&q=85")}.g3{background-image:url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=700&q=85")}.g4{background-image:url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=700&q=85")}.g5{background-image:url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=700&q=85")}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{padding:30px;background:#0d0d0d;border:1px solid #202020;border-radius:16px;transition:.4s}.review:hover{transform:translateY(-8px);border-color:#333}.stars{color:#ffc400;letter-spacing:3px;margin-bottom:20px}.review p{color:#bbb;line-height:1.6;margin-bottom:20px}.review b{font-size:14px}
+.contact{background:linear-gradient(110deg,#120306,#070707);text-align:center}.contact h2{font-size:46px;margin-bottom:15px}.contact p{color:#999;margin-bottom:28px}.contact-info{display:flex;justify-content:center;gap:45px;flex-wrap:wrap;color:#ccc;font-size:14px;margin-top:30px}
+footer{padding:28px 8%;display:flex;justify-content:space-between;color:#666;font-size:12px;border-top:1px solid #151515}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+@media(max-width:900px){nav{display:none}.cards{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.g1{grid-row:auto;grid-column:span 2}.reviews{grid-template-columns:1fr}.hero{min-height:650px;padding-left:7%;padding-right:7%}}
+@media(max-width:560px){header{padding:0 5%}.topbtn{padding:9px 12px;font-size:11px}.cards{grid-template-columns:1fr}section{padding:75px 6%}.hero{padding-top:130px}.hero h1{font-size:48px}.about-img{height:320px}.points{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-template-rows:240px 180px 180px 180px 180px}.g1{grid-column:auto}.contact h2{font-size:36px}footer{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">LM <span>esteticaautomotiva</span></div>
+  <nav><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#avaliacoes">Avaliações</a><a href="#contato">Contato</a></nav>
+  <a class="topbtn" href="https://wa.me/5513981199877?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank">WhatsApp ↗</a>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="hero-content">
+<div class="eyebrow">ESTÉTICA AUTOMOTIVA • SANTOS</div>
+<h1>Seu veículo no <span class="red">seu melhor brilho.</span></h1>
+<p>Lavagem, polimento, cristalização e muito mais. Cuidamos do seu carro, moto, caminhonete, bicicleta elétrica e outros veículos com atenção aos detalhes.</p>
+<a class="cta" href="https://wa.me/5513981199877?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20meu%20ve%C3%ADculo." target="_blank">Agendar horário →</a>
+<a class="cta ghost" href="#servicos">Conhecer serviços</a>
+</div>
+</section>
+
+<section id="servicos">
+<div class="section-title reveal"><div class="eyebrow">NOSSOS SERVIÇOS</div><h2>Tudo para deixar seu veículo <span class="red">impecável.</span></h2><p>Um cuidado completo para quem não abre mão de acabamento, limpeza e proteção.</p></div>
+<div class="cards">
+<div class="card reveal"><div class="icon">◉</div><h3>Lavagem Completa</h3><p>Limpeza detalhada para devolver aparência e cuidado ao veículo.</p></div>
+<div class="card reveal"><div class="icon">✦</div><h3>Polimento</h3><p>Mais brilho, acabamento e renovação visual da pintura.</p></div>
+<div class="card reveal"><div class="icon">◇</div><h3>Higienização</h3><p>Interior limpo, agradável e tratado com atenção aos detalhes.</p></div>
+<div class="card reveal"><div class="icon">✓</div><h3>Proteção</h3><p>Tratamentos pensados para conservar o resultado por mais tempo.</p></div>
+</div>
+</section>
+
+<section class="about">
+<div class="about-img reveal"></div>
+<div class="reveal"><div class="eyebrow">SOBRE NÓS</div><h2>Mais que estética, <span class="red">é cuidado.</span></h2><p style="color:#aaa;line-height:1.8;margin-top:20px">Na Lmesteticaautomotiva, cada veículo recebe atenção, respeito e dedicação. O objetivo é entregar um resultado que você perceba logo no primeiro olhar.</p>
+<div class="points"><div class="point"><b>Atendimento</b><span>Personalizado</span></div><div class="point"><b>Qualidade</b><span>Em cada detalhe</span></div><div class="point"><b>Confiança</b><span>Do início ao fim</span></div></div></div>
+</section>
+
+<section id="galeria">
+<div class="section-title reveal"><div class="eyebrow">GALERIA</div><h2>Alguns dos nossos <span class="red">trabalhos.</span></h2></div>
+<div class="gallery reveal"><div class="g1"></div><div class="g2"></div><div class="g3"></div><div class="g4"></div><div class="g5"></div></div>
+</section>
+
+<section id="avaliacoes">
+<div class="section-title reveal"><div class="eyebrow">AVALIAÇÕES</div><h2>Quem conhece, <span class="red">recomenda.</span></h2></div>
+<div class="reviews">
+<div class="review reveal"><div class="stars">★★★★★</div><p>“Super recomendo, trabalho excelente!”</p><b>Andréa França</b></div>
+<div class="review reveal"><div class="stars">★★★★★</div><p>“Excelente trabalho, super recomendo 👏🏼”</p><b>Claudio Manieri</b></div>
+<div class="review reveal"><div class="stars">★★★★★</div><p>“Máximo respeito pelo trabalho. Depois de muitos anos procurando, achei o melhor.”</p><b>Japastel da Erika</b></div>
+</div>
+</section>
+
+<section class="contact" id="contato">
+<div class="reveal"><div class="eyebrow">VAMOS CUIDAR DO SEU VEÍCULO?</div><h2>Agende seu horário.</h2><p>Fale diretamente pelo WhatsApp e consulte o serviço ideal.</p><a class="cta" href="https://wa.me/5513981199877?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio." target="_blank">Falar no WhatsApp →</a>
+<div class="contact-info"><span>📍 R. Lucas Fortunato, 194 — Vila Mathias, Santos - SP</span><span>🕐 Aberto · Fecha 18:00</span><span>☎ (13) 98119-9877</span></div></div>
+</section>
+</main>
+<footer><span>© 2026 Lmesteticaautomotiva</span><span>Estética automotiva • Santos/SP</span></footer>
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
